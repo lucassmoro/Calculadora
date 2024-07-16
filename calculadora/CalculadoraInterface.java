@@ -15,6 +15,7 @@ public class CalculadoraInterface extends javax.swing.JFrame {
      */
     public CalculadoraInterface() {
         initComponents();
+        this.operation = new Operation();
        
 
     }
@@ -179,6 +180,11 @@ public class CalculadoraInterface extends javax.swing.JFrame {
 
         virgula.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         virgula.setText(".");
+        virgula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                virgulaActionPerformed(evt);
+            }
+        });
 
         raiz.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         raiz.setText("√");
@@ -408,7 +414,9 @@ public class CalculadoraInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(mem!=null){
             operation.setSoma(mem, Double.valueOf(Tela.getText()));
-            result = operation.getSoma();
+            mem = operation.getSoma();
+            Tela.setText(String.valueOf(mem));
+            
         }else{
             mem = Double.valueOf(Tela.getText());
         }
@@ -470,55 +478,91 @@ public class CalculadoraInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
         number1 = Double.valueOf(Tela.getText());
         Tela.setText("");
-        //number2 = Double.valueOf(Tela.getText());
-        //operation.setDivisao(number1, number2);
-        //Tela.setText(String.valueOf(operation.getDivisao()));
+        ehSoma = true;
     }//GEN-LAST:event_adicaoActionPerformed
 
     private void multiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicacaoActionPerformed
         // TODO add your handling code here:
         number1 = Double.valueOf(Tela.getText());
         Tela.setText("");
+        ehMulti = true;
     }//GEN-LAST:event_multiplicacaoActionPerformed
 
     private void raizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raizActionPerformed
         // TODO add your handling code here:
         number1 = Double.valueOf(Tela.getText());
         Tela.setText("");
+        ehRaiz = true;
     }//GEN-LAST:event_raizActionPerformed
 
     private void moduloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moduloActionPerformed
         // TODO add your handling code here:
         number1 = Double.valueOf(Tela.getText());
         Tela.setText("");
+        ehModulo = true;
     }//GEN-LAST:event_moduloActionPerformed
 
     private void subtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtracaoActionPerformed
         // TODO add your handling code here:
         number1 = Double.valueOf(Tela.getText());
         Tela.setText("");
+        ehSubtracao = true;
     }//GEN-LAST:event_subtracaoActionPerformed
 
     private void divisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisaoActionPerformed
         // TODO add your handling code here:
         number1 = Double.valueOf(Tela.getText());
         Tela.setText("");
+        ehDivisao = true;
     }//GEN-LAST:event_divisaoActionPerformed
 
     private void ceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceActionPerformed
         // TODO add your handling code here:
-        Tela.setText("0");
+        Tela.setText("");
     }//GEN-LAST:event_ceActionPerformed
 
     private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoActionPerformed
         // TODO add your handling code here:
+        number2 = Double.valueOf(Tela.getText());
+        if(ehSoma){
+            operation.setSoma(number1, number2);
+            Tela.setText(String.valueOf(operation.getSoma()));
+            ehSoma = false;
+        }
+        else if(ehSubtracao){
+            operation.setSubtracao(number1, number2);
+            Tela.setText(String.valueOf(operation.getSubtracao()));
+            ehSubtracao = false;
+        }
+        else if(ehDivisao){
+            operation.setDivisao(number1, number2);
+            Tela.setText(String.valueOf(operation.getDivisao()));
+            ehDivisao = false;
+        }
+        else if(ehMulti){
+            operation.setMultiplicacao(number1, number2);
+            Tela.setText(String.valueOf(operation.getMultiplicacao()));
+            ehMulti = false;
+        }
+        else if(ehModulo){
+            operation.setModulo(number1, number2);
+            Tela.setText(String.valueOf(operation.getModulo()));
+            ehModulo = false;
+        }
+        else if(ehRaiz){
+            operation.setRaiz(number1, number2);
+            Tela.setText(String.valueOf(operation.getRaiz()));
+            ehRaiz = false;
+        }
+        
     }//GEN-LAST:event_resultadoActionPerformed
 
     private void submemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submemActionPerformed
         // TODO add your handling code here:
         if(mem!=null){
             operation.setSubtracao(mem, Double.valueOf(Tela.getText()));
-            result = operation.getSubtracao();
+            mem = operation.getSubtracao();
+            Tela.setText(String.valueOf(mem));
         }else{
             mem = Double.valueOf(Tela.getText());
         }
@@ -526,13 +570,20 @@ public class CalculadoraInterface extends javax.swing.JFrame {
 
     private void mrcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrcActionPerformed
         // TODO add your handling code here:
-        if(mem==null){
-            Tela.setText("");
-        }else{
-            mem = Double.valueOf(Tela.getText());
+        if (mem != null) {
             Tela.setText(String.valueOf(mem));
         }
+        else{
+            Tela.setText("");
+        }
     }//GEN-LAST:event_mrcActionPerformed
+
+    private void virgulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_virgulaActionPerformed
+        // TODO add your handling code here:
+        if(!Tela.getText().contains(".")){
+            Tela.setText(Tela.getText()+".");
+        }
+    }//GEN-LAST:event_virgulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -563,11 +614,21 @@ public class CalculadoraInterface extends javax.swing.JFrame {
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CalculadoraInterface().setVisible(true);
             }
         });
     }
+
+    public Double getMem() {
+        return mem;
+    }
+
+    public void setMem(Double mem) {
+        this.mem = mem;
+    }
+    private Boolean ehSoma,ehSubtracao, ehDivisao, ehMulti, ehModulo, ehRaiz = false;
     private Double mem;
     private Boolean calculadoraLigada = true;
     private Double number1;

@@ -313,12 +313,13 @@ public class CalculadoraInterface extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(Tela, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(on, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addmem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ce, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(submem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mrc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mrc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(on, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addmem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ce, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(submem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sete, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,10 +344,11 @@ public class CalculadoraInterface extends javax.swing.JFrame {
                                 .addComponent(um, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(subtracao, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(zero, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(virgula, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(zero, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(virgula, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(adicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
@@ -407,6 +409,7 @@ public class CalculadoraInterface extends javax.swing.JFrame {
     private void onActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onActionPerformed
         calculadoraLigada = !calculadoraLigada;
         ligarCalculadora();
+        Tela.setText("");
         
     }//GEN-LAST:event_onActionPerformed
 
@@ -431,47 +434,101 @@ public class CalculadoraInterface extends javax.swing.JFrame {
 
     private void doisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doisActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("2");
+        if(!result){
+            EnterNumbers("2");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("2");
+        }
     }//GEN-LAST:event_doisActionPerformed
 
     private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("3");
+        if(!result){
+            EnterNumbers("3");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("3");
+        }
     }//GEN-LAST:event_tresActionPerformed
 
     private void umActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_umActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("1");
+        if(!result){
+            EnterNumbers("1");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("1");
+        }        
     }//GEN-LAST:event_umActionPerformed
 
     private void zeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("0");
+        if(!result){
+            EnterNumbers("0");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("0");
+        }
     }//GEN-LAST:event_zeroActionPerformed
 
     private void quatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quatroActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("4");
+        if(!result){
+            EnterNumbers("4");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("4");
+        }
     }//GEN-LAST:event_quatroActionPerformed
 
     private void oitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oitoActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("8");
+        if(!result){
+            EnterNumbers("8");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("8");
+        }
     }//GEN-LAST:event_oitoActionPerformed
 
     private void noveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noveActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("9");
+        if(!result){
+            EnterNumbers("9");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("9");
+        }
     }//GEN-LAST:event_noveActionPerformed
 
     private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("6");
+        if(!result){
+            EnterNumbers("6");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("6");
+        }
     }//GEN-LAST:event_seisActionPerformed
 
     private void cincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoActionPerformed
         // TODO add your handling code here:
-        EnterNumbers("5");
+        if(!result){
+            EnterNumbers("5");
+        }
+        else{
+            Tela.setText("");
+            EnterNumbers("5");
+        }
     }//GEN-LAST:event_cincoActionPerformed
 
     private void adicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicaoActionPerformed
@@ -528,31 +585,43 @@ public class CalculadoraInterface extends javax.swing.JFrame {
             operation.setSoma(number1, number2);
             Tela.setText(String.valueOf(operation.getSoma()));
             ehSoma = false;
+            result = true;
+
         }
         else if(ehSubtracao){
             operation.setSubtracao(number1, number2);
             Tela.setText(String.valueOf(operation.getSubtracao()));
             ehSubtracao = false;
+            result = true;
+
+                        
         }
         else if(ehDivisao){
             operation.setDivisao(number1, number2);
             Tela.setText(String.valueOf(operation.getDivisao()));
             ehDivisao = false;
+            result = true;
+
         }
         else if(ehMulti){
             operation.setMultiplicacao(number1, number2);
             Tela.setText(String.valueOf(operation.getMultiplicacao()));
             ehMulti = false;
+            result = true;
         }
         else if(ehModulo){
             operation.setModulo(number1, number2);
             Tela.setText(String.valueOf(operation.getModulo()));
             ehModulo = false;
+            result = true;
+
         }
         else if(ehRaiz){
             operation.setRaiz(number1, number2);
             Tela.setText(String.valueOf(operation.getRaiz()));
             ehRaiz = false;
+            result = true;
+
         }
         
     }//GEN-LAST:event_resultadoActionPerformed
@@ -628,12 +697,16 @@ public class CalculadoraInterface extends javax.swing.JFrame {
     public void setMem(Double mem) {
         this.mem = mem;
     }
-    private Boolean ehSoma,ehSubtracao, ehDivisao, ehMulti, ehModulo, ehRaiz = false;
-    private Double mem;
+    private Boolean ehSoma = false;
+    private Boolean ehSubtracao = false;
+    private Boolean ehDivisao = false;
+    private Boolean ehMulti = false;
+    private Boolean ehModulo = false;
+    private Boolean ehRaiz = false;    private Double mem;
     private Boolean calculadoraLigada = true;
     private Double number1;
     private Double number2;
-    private Double result;
+    private Boolean result = false;
     private Operation operation;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Tela;

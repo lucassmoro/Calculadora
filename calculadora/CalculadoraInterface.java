@@ -419,6 +419,9 @@ public class CalculadoraInterface extends javax.swing.JFrame {
         calculadoraLigada = !calculadoraLigada;
         ligarCalculadora();
         Tela.setText("");
+        if (!calculadoraLigada){
+            mem=null;
+        }
         
     }//GEN-LAST:event_onActionPerformed
 
